@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,23 +15,41 @@
     }
     
     #central-button {
-        width: 100px;
-        height: 100px;
-        background-color: transparent;
+        width: 150px;
+        height: 150px;
+        background-color: #ffffff;
         border: none;
+        border-radius: 50%;
         cursor: pointer;
+        font-size: 16px;
+        color: #000000;
         transition: all 0.3s ease;
-        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
-    #central-button:before,
-    #central-button:after {
+    #central-button.clicked {
+        width: 200px;
+        height: 200px;
+    }
+    
+    #heart {
+        display: none;
+    }
+    
+    #central-button.clicked #heart {
+        display: block;
+    }
+    
+    #heart:before,
+    #heart:after {
         content: '';
         position: absolute;
         top: 0;
-        left: 0;
-        width: 50px;
-        height: 80px;
+        left: 64px;
+        width: 60px;
+        height: 90px;
         background-color: #e74c3c;
         border-radius: 50px 50px 0 0;
         transform: rotate(-45deg);
@@ -38,21 +57,17 @@
         transition: all 0.3s ease;
     }
     
-    #central-button:after {
+    #heart:after {
+        left: 26px;
         transform: rotate(45deg);
         transform-origin: 50% 0;
-    }
-    
-    #central-button.clicked:before,
-    #central-button.clicked:after {
-        width: 60px;
-        height: 90px;
     }
 </style>
 </head>
 <body>
 
-<button id="central-button" onclick="expandHeart()"></button>
+<button id="central-button" onclick="expandHeart()">Clique Aqui</button>
+<div id="heart"></div>
 
 <script>
     function expandHeart() {
