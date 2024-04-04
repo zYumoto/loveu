@@ -38,9 +38,9 @@
         content: '';
         position: absolute;
         top: 0;
-        left: 64px;
-        width: 60px;
-        height: 90px;
+        left: 50%;
+        width: 100px;
+        height: 100px;
         background-color: #e74c3c;
         border-radius: 50px 50px 0 0;
         transform: rotate(-45deg);
@@ -49,16 +49,33 @@
     }
     
     #heart:after {
-        left: 26px;
+        left: 0;
         transform: rotate(45deg);
         transform-origin: 50% 0;
+    }
+    
+    #heart-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 20px;
+        color: #ffffff;
+        display: none;
+    }
+    
+    #central-button.clicked #heart,
+    #central-button.clicked #heart-text {
+        display: block;
     }
 </style>
 </head>
 <body>
 
 <button id="central-button" onclick="expandHeart()">Clique Aqui</button>
-<div id="heart"></div>
+<div id="heart">
+    <div id="heart-text">Eu te amo</div>
+</div>
 
 <script>
     function expandHeart() {
@@ -66,6 +83,8 @@
         button.style.display = "none";
         var heart = document.getElementById("heart");
         heart.style.display = "block";
+        var heartText = document.getElementById("heart-text");
+        heartText.style.display = "block";
     }
 </script>
 
