@@ -26,46 +26,27 @@
     }
     
     #heart {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: none;
-    }
-    
-    #heart:before,
-    #heart:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 50%;
         width: 100px;
         height: 100px;
         background-color: #e74c3c;
-        border-radius: 50px 50px 0 0;
-        transform: rotate(-45deg);
-        transform-origin: 50% 100%;
-        transition: all 0.3s ease;
-    }
-    
-    #heart:after {
-        left: 0;
-        transform: rotate(45deg);
-        transform-origin: 50% 0;
-    }
-    
-    #heart-text {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 20px;
+        border-radius: 50%;
         color: #ffffff;
+        font-size: 20px;
         display: none;
+        position: relative;
+        animation: zoomIn 0.5s ease;
     }
     
-    #central-button.clicked #heart,
-    #central-button.clicked #heart-text {
+    @keyframes zoomIn {
+        from {
+            transform: scale(0);
+        }
+        to {
+            transform: scale(1);
+        }
+    }
+    
+    #central-button.clicked #heart {
         display: block;
     }
 </style>
@@ -73,9 +54,7 @@
 <body>
 
 <button id="central-button" onclick="expandHeart()">Clique Aqui</button>
-<div id="heart">
-    <div id="heart-text">Eu te amo</div>
-</div>
+<div id="heart">Eu te amo</div>
 
 <script>
     function expandHeart() {
@@ -83,8 +62,6 @@
         button.style.display = "none";
         var heart = document.getElementById("heart");
         heart.style.display = "block";
-        var heartText = document.getElementById("heart-text");
-        heartText.style.display = "block";
     }
 </script>
 
