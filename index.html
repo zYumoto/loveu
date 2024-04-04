@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Botão Central</title>
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+    
+    #central-button {
+        width: 100px;
+        height: 100px;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    #central-button:before,
+    #central-button:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        height: 80px;
+        background-color: #e74c3c;
+        border-radius: 50px 50px 0 0;
+        transform: rotate(-45deg);
+        transform-origin: 50% 100%;
+        transition: all 0.3s ease;
+    }
+    
+    #central-button:after {
+        transform: rotate(45deg);
+        transform-origin: 50% 0;
+    }
+    
+    #central-button.clicked:before,
+    #central-button.clicked:after {
+        width: 60px;
+        height: 90px;
+    }
+</style>
+</head>
+<body>
+
+<button id="central-button" onclick="expandHeart()"></button>
+
+<script>
+    function expandHeart() {
+        var button = document.getElementById("central-button");
+        button.classList.toggle("clicked");
+    }
+</script>
+
+</body>
+</html>
